@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import { onMount } from "svelte";
     import { storage } from "../storage";
     import Options from "./Options.svelte";
@@ -24,4 +24,4 @@
         border: 1px solid black;
         padding: 16px;
     }
-</style>
+</style> -->

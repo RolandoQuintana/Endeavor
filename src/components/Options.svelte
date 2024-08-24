@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import { storage } from "../storage";
 
     export let count: number;
@@ -57,4 +57,4 @@
         color: #2ecc71;
         font-weight: bold;
     }
-</style>
+</style> -->

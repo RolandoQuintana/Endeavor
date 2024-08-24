@@ -27,13 +27,33 @@ export default defineManifest(async (env) => ({
             matches: ["https://*/*"],
             js: ["src/content/index.ts"],
         },
+        {
+            matches: ["*://calendar.google.com/calendar/u/0/r/*"],
+            js: ["src/content/createEvent_2.js"],
+        },
+        {
+            matches: ["*://calendar.google.com/calendar/u/0/r/*"],
+            js: ["src/content/tagEvents.js"],
+        },
+        {
+            matches: ["*://calendar.google.com/calendar/u/0/r/*"],
+            js: ["src/content/tagTasks.js"],
+        },
+        {
+            matches: ["*://calendar.google.com/calendar/u/0/r/*"],
+            js: ["src/content/editEvent.js"],
+        },
+        {
+            matches: ["*://calendar.google.com/calendar/u/0/r/*"],
+            js: ["src/content/createEventFromTask.js"],
+        },
     ],
     background: {
         service_worker: "src/background/index.ts",
     },
     options_ui: {
-        page: "src/options/options.html",
-        open_in_tab: false,
+        page: "src/background/app.html",
+        open_in_tab: true,
     },
     side_panel: {
         default_path: "src/sidepanel/sidepanel.html",
@@ -47,5 +67,15 @@ export default defineManifest(async (env) => ({
             "128": "src/assets/icons/icon-128.png",
         },
     },
-    permissions: ["storage", "sidePanel"] as chrome.runtime.ManifestPermissions[],
+    permissions: ["storage", "sidePanel", "identity", "activeTab", "scripting", "webRequest"] as chrome.runtime.ManifestPermissions[],
+    web_accessible_resources: [
+        {
+            resources: ["src/background/app.html"],
+            matches: ["<all_urls>"],
+        },
+    ],
+    oauth2: {
+      "client_id": "601515777099-7u9ncs8vdjs0p7dq523aqh7pdksgsn6f.apps.googleusercontent.com",
+      "scopes": ["https://www.googleapis.com/auth/calendar","https://www.googleapis.com/auth/directory.readonly"]
+    },
 }));

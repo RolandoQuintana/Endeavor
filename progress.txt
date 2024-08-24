@@ -1,0 +1,5 @@
+I"m currenty working on the google calendar service. 
+I need to figure out how to sync the calendar to the endeavor store. 
+I need to figure out how to merge the events with the endeavor store. 
+I need to figure out how to update the endeavor store with the events. 
+I need to figure out how to save the endeavor store to the storage.
